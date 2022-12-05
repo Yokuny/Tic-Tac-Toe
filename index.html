@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="mainGrid.css">
     <link rel="stylesheet" href="contentGrid.css">
@@ -16,22 +16,22 @@
         <div class="contentGrid">
             <h1 class="gameTitle">Jogo da velha</h1>
             <div class="ticTacToeGrid">
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
-                <div class="square">-</div>
+                <div id="square11" class="squareSize">-</div>
+                <div id="square12" class="squareSize">-</div>
+                <div id="square13" class="squareSize">-</div>
+                <div id="square21" class="squareSize">-</div>
+                <div id="square22" class="squareSize">-</div>
+                <div id="square23" class="squareSize">-</div>
+                <div id="square31" class="squareSize">-</div>
+                <div id="square32" class="squareSize">-</div>
+                <div id="square33" class="squareSize">-</div>
             </div>
             <div class="gameInfo">
-                <h4>{caracterName} X</h4>
-                <h4>{caracterName2} O</h4>
+                <h4>Felipe X</h4>
+                <h4>Marlon O</h4>
             </div>
         </div>
     </main>
 </body>
-<script src="script.js"></script>
+<script src="script.js" onload="render()"></script>
 </html>

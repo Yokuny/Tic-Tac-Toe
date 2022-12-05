@@ -1,0 +1,36 @@
+.ticTacToeGrid{
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-template-areas:
+    "11 12 13"
+    "21 22 23"
+    "31 32 33";
+    gap: 0.2vw;
+}
+#square11{
+    grid-area: "11";
+}
+#square12{
+    grid-area: "12";
+}
+#square13{
+    grid-area: "13";
+}
+#square21{
+    grid-area: "21";
+}
+#square22{
+    grid-area: "22";
+}
+#square23{
+    grid-area: "23";
+}
+#square31{
+    grid-area: "31";
+}
+#square32{
+    grid-area: "32";
+}
+#square33{
+    grid-area: "33";
+}

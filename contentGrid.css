@@ -2,18 +2,15 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-rows: 0.2fr 0.6fr 0.2fr;
+    grid-template-rows: 0.15fr 0.6fr 0.25fr;
     grid-template-areas: "gameTitle" "ticTacToeGrid" "gameInfo";
 }
 .gameTitle{
-    background-color: antiquewhite;
     grid-area: gameTitle;
 }
 .ticTacToeGrid{
-    background-color: aqua;
     grid-area: ticTacToeGrid;
 }
 .gameInfo{
-    background-color: aquamarine;
     grid-area: gameInfo;
 }
