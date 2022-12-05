@@ -1,8 +1,10 @@
 .gameTitle{
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 600;
     font-size: 2rem;
-    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2) ;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1) ;
 }
 .squareSize{
     box-sizing: border-box;
@@ -36,6 +38,4 @@
 }
 .gameInfo h4:hover{
     filter: brightness(100%);
-    font-weight: 700;
-    letter-spacing: 2px;
 }

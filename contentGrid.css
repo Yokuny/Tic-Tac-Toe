@@ -4,6 +4,12 @@
     display: grid;
     grid-template-rows: 0.15fr 0.6fr 0.25fr;
     grid-template-areas: "gameTitle" "ticTacToeGrid" "gameInfo";
+    box-sizing: border-box;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(200px);
+
 }
 .gameTitle{
     grid-area: gameTitle;
