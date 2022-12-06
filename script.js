@@ -1,3 +1,8 @@
+function playChoice(id) {
+  const square = document.getElementById(id);
+  square.textContent = "X";
+}
+
 function gameBoardRender() {
   const gameBoard = document.getElementById("ticTacToeGrid");
   gameBoard.innerHTML = "";
@@ -19,17 +24,32 @@ function gameBoardRender() {
     gameBoard.append(element);
   });
 }
+const player = (name, xOrSquare) => {
+  let winCount = 0;
+  if (name == "") {
+    name = "Player";
+  }
+  return { name, xOrSquare, winCount };
+};
+function createPlayers(player1Name, player2Name, iaMode) {
+  const firstPlayer = player(player1Name, "X", iaMode);
+  const secondPlayer = player(player2Name, "O", iaMode);
 
-function playChoice(id) {
-  const square = document.getElementById(id);
-  square.textContent = "X";
+  if (iaMode) {
+  } else {
+  }
+
+  const firstPlayerDOMElement = document.getElementById("firstPlayerName");
+  firstPlayerDOMElement.textContent = `${firstPlayer.name} - ${firstPlayer.xOrSquare}`;
+  const secondPlayerDOMElement = document.getElementById("secondPlayerName");
+  secondPlayerDOMElement.textContent = `${secondPlayer.name} - ${secondPlayer.xOrSquare}`;
 }
-
 function registerScreen() {
   let firstPlayerInput = document.getElementById("firstPlayer").value;
   let secondPlayerInput = document.getElementById("secondPlayer").value;
   let vsIA = document.getElementById("iaYes").checked;
   const renderRegistration = document.getElementById("floatingRegisterDisplay");
   renderRegistration.style = "display:none;";
+  createPlayers(firstPlayerInput, secondPlayerInput, vsIA);
   gameBoardRender();
 }
