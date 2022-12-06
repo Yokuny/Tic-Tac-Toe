@@ -1,0 +1,86 @@
+#floatingRegisterDisplay{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position:absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.floatingDisplayCard{
+    position: relative;
+    width: max(25%, 300px);
+    height: 60%;
+    border-radius: 15px;
+    box-shadow: 7px 10px 30px -2px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+
+}
+.floatingDisplayContent{
+    width: 70%;
+}
+.floatingDisplayContent h4{
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+.floatingDisplayContent fieldset{
+    margin-top: 7px;
+}
+.floatingDisplayContent fieldset legend{
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 4px;
+}
+.floatingDisplayContent fieldset input{
+    width: max(30%, 195px);
+    border-radius: 8px;
+    border: transparent;
+    padding-left: 8px;
+    font-size: 1.4rem;
+    height: 32px;
+    border: 2px solid transparent;
+    margin-top: 2px;
+}
+.floatingDisplayContent input:active, input:focus{
+    outline: none;
+    border:#23d5abd5 solid 2px;
+}
+.radioFieldset{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    gap: 10px;
+}
+.radioFieldsetChoice{
+    display: flex;
+    align-items: center;    
+    font-size: 1.6rem;
+    gap: 10px;
+}
+.registerButton{
+    margin-top: 2.5vh;
+    display: flex;
+    justify-content: center;
+}
+.registerButton button{
+    font-weight: 600;
+    color: white;
+    width: 100%;
+    height: 35px;
+    border-radius: 8px;
+    border: solid 2px transparent;
+    background: linear-gradient(30deg,#fe8800,#aeb900,#1de6ac,#00fdd8, #f8499d,#e837b4,#fe6569,#f952ab,#d33ba6,#272727,#373737, #c4c4c4);
+    background-size: 400% 400%;
+	background-repeat: no-repeat;
+    animation: change 20s ease-in-out infinite;
+    cursor: pointer;
+}
+.registerButton button:hover{
+    border:  #23d5abd5 solid 2px;
+    border-radius: 8px;
+}

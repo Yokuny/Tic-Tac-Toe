@@ -3,22 +3,25 @@
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    font-size: 2rem;
+    font-size: 3rem;
     text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.1) ;
 }
 .squareSize{
     box-sizing: border-box;
     padding: 6vh;
     border-radius: 4px;
-    border: solid 1px #c7c7c7;
+    border: solid 1px rgb(200, 200, 200, 0.9);
     backdrop-filter: blur(200px);
     text-align: center;
+    font-size: 2rem;
+    filter: brightness(90%);
 }
 .squareSize:hover{
-    filter: brightness(80%);
+    filter: brightness(120%);
 }
 .gameInfo{
     display: flex;
+    font-size: 2.2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -29,13 +32,12 @@
     width: 100%;
     text-align: center;
     border-radius: 4px;
-    border: solid 1px #c7c7c7;
+    border: solid 1px rgb(200, 200, 200, 0.9);
     backdrop-filter: blur(200px);
-    background-color: rgba(0, 0, 0, 0.0);
-    margin:0.2rem;
+    margin:0.3rem;
     font-weight: 600;
     filter: brightness(90%);
 }
 .gameInfo h4:hover{
-    filter: brightness(100%);
+    filter: brightness(120%);
 }

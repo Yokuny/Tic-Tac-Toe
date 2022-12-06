@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="mainGrid.css">
-    <link rel="stylesheet" href="contentGrid.css">
-    <link rel="stylesheet" href="ticTacToeGrid.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/mainGrid.css">
+    <link rel="stylesheet" href="./style/contentGrid.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/floatingForm.css">
 </head>
 <body>
     <main class="mainGrid">
@@ -32,6 +32,39 @@
             </div>
         </div>
     </main>
+
+    <div style="display: flex;" id="floatingRegisterDisplay">
+        <div class="floatingDisplayCard">
+            <div class="floatingDisplayContent">
+                <h4>Player name</h4>
+                <fieldset>
+                    <legend for="firstPlayer">Player 1</legend>
+                    <input type="text" name="" id="firstPlayer" required>
+                </fieldset>
+                <fieldset>
+                    <legend for="secondPlayer">Player 2</legend>
+                    <input type="text" name="" id="secondPlayer">
+                </fieldset>
+                <fieldset role="radiogroup">
+                    <legend>IA mode ?</legend>
+                    <div class="radioFieldset">
+                        <label for="yes" class="radioFieldsetChoice">
+                            <input type="radio" id="iaYes" name="IA" value="yes">
+                            Yes
+                        </label>
+                        <label for="no" class="radioFieldsetChoice">
+                            <input type="radio" id="iaNo" name="IA" value="no" checked>
+                            No
+                        </label>
+                    </div>
+                </fieldset>
+                <div class="registerButton">
+                    <button onclick="registerScreen()">Start</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
-<script src="script.js" onload="render()"></script>
+<script src="script.js"></script>
 </html>
