@@ -94,11 +94,7 @@ function start() {
   core.closeRegisterScreen();
   const squares = core.squareElement(core.idsArray());
   core.gameBoardRender(squares.squareElement);
-  firstPlayer = player(
-    document.getElementById("firstPlayer").value,
-    "X",
-    document.getElementById("iaYes").checked
-  );
+  firstPlayer = player(document.getElementById("firstPlayer").value, "X", false);
   secondPlayer = player(
     document.getElementById("secondPlayer").value,
     "O",
