@@ -42,3 +42,8 @@
 .gameInfo h4:hover{
     filter: brightness(120%);
 }
+/* */
+.resetButton{
+    display: none;
+    width: 40%;
+}

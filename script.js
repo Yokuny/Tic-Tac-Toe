@@ -98,8 +98,8 @@ const core = (() => {
     if (sequenceCheck(square11, square12, square13)) {
       winnerDisplay(11, 12, 13);
       return true;
-    } else if (sequenceCheck(square21, square22, square32)) {
-      winnerDisplay(21, 22, 32);
+    } else if (sequenceCheck(square21, square22, square23)) {
+      winnerDisplay(21, 22, 23);
       return true;
     } else if (sequenceCheck(square31, square32, square33)) {
       winnerDisplay(31, 32, 33);
@@ -121,6 +121,15 @@ const core = (() => {
       return true;
     } else return;
   };
+  const winAmountDisplay = () => {
+    document.getElementById(
+      "firstPlayerName"
+    ).textContent = `${firstPlayer.getPlayerName()} - ${firstPlayer.getXO()} - Vitórias ${firstPlayer.getWinAmount()}`;
+    document.getElementById(
+      "secondPlayerName"
+    ).textContent = `${secondPlayer.getPlayerName()} - ${secondPlayer.getXO()} - Vitórias ${secondPlayer.getWinAmount()}`;
+  };
+  const reset = () => {};
   return {
     gameBoardClear,
     closeRegisterScreen,
@@ -130,6 +139,8 @@ const core = (() => {
     displayPlayersName,
     changeCurrentPlayer,
     winnerCheck,
+    winAmountDisplay,
+    reset,
   };
 })();
 
@@ -140,11 +151,19 @@ let currentPlayer;
 function play(id) {
   const square = document.getElementById(id);
   if (square.innerHTML != "-") return;
-  if (core.winnerCheck()) return;
-  square.textContent = currentPlayer.getXO();
-  core.changeCurrentPlayer(currentPlayer.getXO());
+  if (!core.winnerCheck()) {
+    square.textContent = currentPlayer.getXO();
+    if (!core.winnerCheck()) core.changeCurrentPlayer(currentPlayer.getXO());
+  } else {
+    if (firstPlayer.getXO() == currentPlayer.getXO()) {
+      firstPlayer.winIncrease();
+    } else {
+      secondPlayer.winIncrease();
+    }
+    core.winAmountDisplay();
+    core.reset();
+  }
 }
-
 function start() {
   core.gameBoardClear();
   core.closeRegisterScreen();
