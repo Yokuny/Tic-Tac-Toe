@@ -71,8 +71,12 @@ const core = (() => {
   const changeCurrentPlayer = (xo) => {
     if (xo == "X" || xo == "x") {
       currentPlayer = secondPlayer;
+      document.getElementById("firstPlayerName").style = "border-left: 4px solid transparent";
+      document.getElementById("secondPlayerName").style = "border-left: 4px solid white";
     } else {
       currentPlayer = firstPlayer;
+      document.getElementById("firstPlayerName").style = "border-left: 4px solid white";
+      document.getElementById("secondPlayerName").style = "border-left: 4px solid transparent";
     }
   };
   function winnerDisplay(id1, id2, id3) {

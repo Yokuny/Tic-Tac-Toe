@@ -10,7 +10,7 @@
 }
 @media screen and (max-width: 1000px){
     .mainGrid{
-        grid-template: 0.1fr 0.8fr 0.1fr / 0.1fr repeat(3, 1fr) 0.1fr;
+        grid-template: 0.1fr 0.8fr 0.1fr / 0.2fr repeat(3, 1fr) 0.2fr;
         grid-template-areas:
         ". . . . ."
         ". contentGrid contentGrid contentGrid ."

@@ -26,5 +26,5 @@
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
     grid-template-areas:
     "a11 a12 a13" "a21 a22 a23" "a31 a32 a33";
-    gap: 0.2vw;
+    gap: 0.8vh;
 }
