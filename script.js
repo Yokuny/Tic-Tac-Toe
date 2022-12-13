@@ -32,7 +32,7 @@ const core = (() => {
     }
     return squareIds;
   };
-  const squareElement = (elementsId) => {
+  const squareElement = (elementsId, empty) => {
     let squareElement = [];
     elementsId.forEach((element) => {
       let aSquare = document.createElement("div");
@@ -45,9 +45,11 @@ const core = (() => {
       } else if (element == "o" || element == "O") {
         aSquare.innerText = `O`;
       }
-      aSquare.addEventListener("click", function () {
-        play(`${this.id}`);
-      });
+      if (!empty) {
+        aSquare.addEventListener("click", function () {
+          play(`${this.id}`);
+        });
+      }
       squareElement.push(aSquare);
     });
     return { squareElement };
@@ -74,6 +76,9 @@ const core = (() => {
     }
   };
   function winnerDisplay(id1, id2, id3) {
+    gameBoardClear();
+    const squares = squareElement(idsArray(), true);
+    gameBoardRender(squares.squareElement);
     document.getElementById(`square${id1}`).style.backgroundColor = "#00ec3b";
     document.getElementById(`square${id2}`).style.backgroundColor = "#00ec3b";
     document.getElementById(`square${id3}`).style.backgroundColor = "#00ec3b";
@@ -85,6 +90,16 @@ const core = (() => {
       return a1 == a2 && a1 == a3;
     }
   }
+  function playerWinIncrease() {
+    if (firstPlayer.getXO() == currentPlayer.getXO()) {
+      firstPlayer.winIncrease();
+    } else {
+      secondPlayer.winIncrease();
+    }
+  }
+  const resetButton = () => {
+    document.getElementById("resetButton").style = "display:initial; width:40%";
+  };
   const winnerCheck = () => {
     const square11 = document.getElementById("square11").innerHTML;
     const square12 = document.getElementById("square12").innerHTML;
@@ -97,27 +112,51 @@ const core = (() => {
     const square33 = document.getElementById("square33").innerHTML;
     if (sequenceCheck(square11, square12, square13)) {
       winnerDisplay(11, 12, 13);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square21, square22, square23)) {
       winnerDisplay(21, 22, 23);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square31, square32, square33)) {
       winnerDisplay(31, 32, 33);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square11, square21, square31)) {
       winnerDisplay(11, 21, 31);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square12, square22, square32)) {
       winnerDisplay(12, 22, 32);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square13, square23, square33)) {
       winnerDisplay(13, 23, 33);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square11, square22, square33)) {
       winnerDisplay(11, 22, 33);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else if (sequenceCheck(square31, square22, square13)) {
       winnerDisplay(31, 22, 13);
+      playerWinIncrease();
+      winAmountDisplay();
+      resetButton();
       return true;
     } else return;
   };
@@ -129,7 +168,12 @@ const core = (() => {
       "secondPlayerName"
     ).textContent = `${secondPlayer.getPlayerName()} - ${secondPlayer.getXO()} - Vitórias ${secondPlayer.getWinAmount()}`;
   };
-  const reset = () => {};
+  const reset = () => {
+    document.getElementById("resetButton").style = "display:none";
+    gameBoardClear();
+    const squares = core.squareElement(core.idsArray(), false);
+    core.gameBoardRender(squares.squareElement);
+  };
   return {
     gameBoardClear,
     closeRegisterScreen,
@@ -154,20 +198,12 @@ function play(id) {
   if (!core.winnerCheck()) {
     square.textContent = currentPlayer.getXO();
     if (!core.winnerCheck()) core.changeCurrentPlayer(currentPlayer.getXO());
-  } else {
-    if (firstPlayer.getXO() == currentPlayer.getXO()) {
-      firstPlayer.winIncrease();
-    } else {
-      secondPlayer.winIncrease();
-    }
-    core.winAmountDisplay();
-    core.reset();
   }
 }
 function start() {
   core.gameBoardClear();
   core.closeRegisterScreen();
-  const squares = core.squareElement(core.idsArray());
+  const squares = core.squareElement(core.idsArray(), false);
   core.gameBoardRender(squares.squareElement);
   firstPlayer = player(document.getElementById("firstPlayer").value, "X", false);
   secondPlayer = player(
